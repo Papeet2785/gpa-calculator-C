@@ -28,9 +28,8 @@ int main() {
     " Enjoy!!! :)\n\n"
     );
 
-    while(keep_on){
+    while (keep_on) {
         GPA = 0;
-        // number of classes
         printf(" How many classes do you have?\n");
         scanf("%d", &num_of_classes);
         printf("\n");
@@ -41,33 +40,34 @@ int main() {
        " Choose mode. Invalid input defaults to Input mode: ");
         scanf(" %c", &mode);
         mode = toupper(mode);
-        if(mode == 'I'){
-            input_mode(num_of_classes, current_input, current_input_num, grades);
+        switch (mode) {
+            case 'I':
+                input_mode(num_of_classes, current_input, current_input_num, grades);
+                break;
+            case 'A':
+                average_mode(num_of_classes, current_input_num, grades);
+                break;
+            default:
+                printf("Invalid mode chosen.\n");
+                input_mode(num_of_classes, current_input, current_input_num, grades);
+                break;
         }
-        else if(mode == 'A'){
-            average_mode(num_of_classes, current_input_num, grades);
-        }
-        else{
-            input_mode(num_of_classes, current_input, current_input_num, grades);
-        }
-
-        // finding average of all the final grades in the list
-        for(int j = 0; j < num_of_classes; j++){
+        for (int j = 0; j < num_of_classes; j++) {
             GPA += grades[j];
         }
         GPA /= num_of_classes;
 
         printf(" You GPA is %.3f!\n", GPA);
-        if(GPA < 4){
+        if (GPA < 4) {
             printf(" Nice, but there's room for improvement. You may have to work harder next semester!\n");
         }
-        else{
+        else {
             printf(" Keep up with the good work. You're a Star!\n");
         }
         printf(" Do you want to keep using the Calculator? You can calculate GPA for another semester, or switch modes. :)\n (Y for Yes, N for No)\n");
         scanf(" %c", &keep_on_choice);
         keep_on_choice = toupper(keep_on_choice);
-        if(keep_on_choice == 'N'){
+        if (keep_on_choice == 'N') {
             keep_on = false;
             printf(" Thank you so much for using my GPA Calculator! :)\n");
         }
@@ -78,15 +78,13 @@ int main() {
 void input_mode(int num_of_classes, char current_input, float current_input_num, float grades[]) {
     char weight = '\0';
     float weight_num = 0;
-
-    printf("\n Input mode is selected for the GPA Calculator!\n\n");
-    for(int i = 0; i < num_of_classes; i++){
     
-    // inputting weights
+    printf("\n Input mode is selected for the GPA Calculator!\n\n");
+    for (int i = 0; i < num_of_classes; i++) {
         printf(" What type of class is it? Enter the first letter (A for AP, H for Honors, and S for Standard): ");
         scanf(" %c", &weight);
         weight = toupper(weight);
-        switch(weight){
+        switch (weight) {
             case 'A':
                 weight_num = 1;
                 printf(" Nice! You're taking the APs!\n");
@@ -104,11 +102,10 @@ void input_mode(int num_of_classes, char current_input, float current_input_num,
                 printf(" -_-\n Will assume Standard class for invalid input.\n Good Choice!\n");
                 break;
         }
-    // inputting grades
         printf("\n What are your grades in that class? Enter a letter (A, B, C, D, F): ");
         scanf(" %c", &current_input);
         current_input = toupper(current_input);
-        switch(current_input){
+        switch (current_input) {
             case 'A':
                 current_input_num = 4;
                 printf(" Perfect!!!\n");
@@ -134,7 +131,6 @@ void input_mode(int num_of_classes, char current_input, float current_input_num,
                 current_input_num = 2;
                 break;
         }
-    // appending (input + weight) into list of grades
         grades[i] = current_input_num + weight_num;
         printf(" Grade Added!\n\n");
     }
@@ -142,13 +138,9 @@ void input_mode(int num_of_classes, char current_input, float current_input_num,
 
 void average_mode(int num_of_classes, float current_input_num, float grades[]) {
     printf("\n Average mode is selected for the GPA Calculator!\n\n");
-
-    // inputting GPAs to be averaged for final GPA
     for(int k = 0; k < num_of_classes; k++){
         printf(" Input Grade no. %d: ", (k + 1));
         scanf("%f", &current_input_num);
-    
-    // appending input into list of grades to be averaged.
         grades[k] = current_input_num;
         printf(" Grade Added!\n\n");
     }
