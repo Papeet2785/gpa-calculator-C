@@ -18,7 +18,7 @@ int main() {
     "*** PAPEET2785'S GPA CALCULATOR ***\n\n");
     while (keep_on) {
         gpa = 0;
-        printf(" How many classes do you have?\n");
+        printf(" How many classes do you have: ");
         scanf("%d", &class_count);
         printf("\n");
         printf(" This calculator offers 2 modes:\n"
@@ -43,9 +43,7 @@ int main() {
             gpa += grades_list[j];
         }
         gpa /= class_count;
-        printf(" Your GPA is %.3f!\n", gpa);
-        printf(" Do you want to keep using the Calculator? You can calculate GPA for another semester, or switch modes. :)\n"
-             " (Y for Yes, N for No)\n");
+        printf(" Your GPA is %.3f!\n Do you want to keep using the Calculator? You can calculate GPA for another semester, or switch modes (Y for Yes, N for No): ", gpa);
         scanf(" %c", &keep_on_choice);
         keep_on_choice = toupper(keep_on_choice);
         if (keep_on_choice == 'N') {
