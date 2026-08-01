@@ -25,13 +25,20 @@ This program calculates your GPA (in the 4.0 scale) using one of two modes:
 Compile using GCC:
 
 ```bash
-gcc main.c -o GPA-Calculator
+gcc main.c -o gpa-calculator.out
 ```
 
 or with optimizations:
 
 ```bash
-gcc main.c -O2 -o GPA-Calculator
+gcc main.c -O2 -o gpa-calculator.out
+```
+
+or on windows:
+
+
+```bash
+gcc main.c -o gpa-calculator.exe
 ```
 
 ## Running
@@ -39,13 +46,13 @@ gcc main.c -O2 -o GPA-Calculator
 Windows:
 
 ```bash
-GPA-Calculator.exe
+./gpa-calculator.exe
 ```
 
 Linux/macOS:
 
 ```bash
-./GPA-Calculator
+./gpa-calculator.out
 ```
 
 ## Usage
