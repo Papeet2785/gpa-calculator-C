@@ -22,37 +22,27 @@ This program calculates your GPA (in the 4.0 scale) using one of two modes:
 
 ## Building
 
-Compile using GCC:
+Compile using clang:
 
 ```bash
-gcc main.c -o gpa-calculator.out
+clang main.c -o gpa-calculator.out
 ```
 
-or with optimizations:
+Or on windows:
 
 ```bash
-gcc main.c -O2 -o gpa-calculator.out
-```
-
-or on windows:
-
-
-```bash
-gcc main.c -o gpa-calculator.exe
+clang main.c -o gpa-calculator.exe
 ```
 
 ## Running
 
-Windows:
+```bash
+./gpa-calculator.out
+```
+Or on windows:
 
 ```bash
 ./gpa-calculator.exe
-```
-
-Linux/macOS:
-
-```bash
-./gpa-calculator.out
 ```
 
 ## Usage
