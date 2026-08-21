@@ -14,6 +14,10 @@
     in {
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
+          bear
+          gcc
+          lldb
+          glibc.dev
           clang
           clang-tools
         ];
