@@ -22,9 +22,9 @@ int main() {
         scanf("%d", &class_count);
         printf("\n");
         printf(" This calculator offers 2 modes:\n"
-       "    - Input mode: i\n"
-       "    - Average mode a\n"
-       " Choose mode: ");
+               "    - Input mode: i\n"
+               "    - Average mode a\n"
+               " Choose mode: ");
         scanf(" %c", &mode);
         mode = toupper(mode);
         switch (mode) {
